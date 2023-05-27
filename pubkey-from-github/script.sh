@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Check if Go is installed
 if ! command -v go &> /dev/null; then
     echo "Go is not installed. Installing Go..."
@@ -29,7 +28,7 @@ cd /tmp/app/utility/ssh-key-from-gh/app || exit 1
 
 # Build and run the Go program
 echo "Building and running the program..."
-go run main.go
+sudo -u ubuntu /usr/local/go/bin/go run main.go
 
 # Cleanup: Remove the cloned repository
 echo "Cleaning up..."
