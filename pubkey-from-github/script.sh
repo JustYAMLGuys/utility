@@ -16,14 +16,16 @@ if ! command -v go &> /dev/null; then
     # Reload the profile
     source /etc/profile.d/go.sh
 
+    rm go1.17.5.linux-amd64.tar.gz
+    
     echo "Go has been installed."
 fi
 
 
 # Clone the repository
 echo "Cloning the repository..."
-git clone https://github.com/JustYAMLGuys/utility.git /tmp/app
-cd /tmp/app || exit 1
+git clone https://github.com/ettoreciarcia/homelab2.0.git /tmp/app
+cd /tmp/app/utility/ssh-key-from-gh/app || exit 1
 
 # Build and run the Go program
 echo "Building and running the program..."
@@ -31,6 +33,7 @@ go run main.go
 
 # Cleanup: Remove the cloned repository
 echo "Cleaning up..."
+cd ../..
 rm -rf /tmp/app
 
 echo "Script completed successfully."
